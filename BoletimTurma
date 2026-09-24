@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+
+public class BoletimTurma {
+    public static void main (String[]args) {
+        ArrayList<String> alunos = new ArrayList<>();
+        alunos.add("Fernanda");
+        alunos.add("João");
+        alunos.add("Ana");
+        alunos.add("Pedro");
+        alunos.add("Maria");
+
+        double[] medias = {6.5, 8.0, 4.2, 7.5, 5.8};
+
+        if(alunos.size() != medias.length) {
+            System.out.println("ERRO! A quantidade de notas é diferente da quantidade de alunos");
+        }
+
+        System.out.println("---------NOTAS--------");
+
+        for(int i = 0; i < alunos.size(); i++) {
+            String nome = alunos.get(i);
+            double media = medias[i];
+
+            String situacao = (media >= 6.0) ? "Aprovado" : "Reprovado";
+
+            System.out.println("Nome: " +nome+ "| Média: " +media+ "|Situação: " +situacao);
+        }
+
+        System.out.println("\n---------LISTA DE CHAMADA---------");
+        for(String nome : alunos) {
+            System.out.println(nome);
+        }
+
+        System.out.println("\n---------APROVADOS---------");
+        int aprovados = 0;
+        int cont = 0;
+        while(cont < medias.length) {
+            if (medias[cont] >= 6.0) {
+                aprovados++;
+            }
+            cont++;
+        }
+        System.out.println("Quantidade de alunos aprovados: " +aprovados);
+    }
+}
